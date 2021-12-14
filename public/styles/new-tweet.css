@@ -29,3 +29,7 @@ label {
   color: white;
   background-color: #4154A1;
 }
+
+.negative-count {
+  color: red;
+}

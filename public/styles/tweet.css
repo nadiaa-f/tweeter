@@ -50,3 +50,7 @@
   display: flex;
   justify-content: space-between;
 }
+
+.counter {
+  font-family: "Bungee", sans-serif;
+}

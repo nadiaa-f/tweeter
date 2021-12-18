@@ -5,7 +5,7 @@
 .word-counter {
   display: flex;
   justify-content: space-between;
-  font-family: "Bungee", sans-serif;;
+  font-family: "Bungee", sans-serif;
 }
 
 #tweet-text {
@@ -24,11 +24,13 @@
 
 label {
   font-weight: bold;
+  
 }
 
 .tweet-button {
   color: white;
-  background-color: #4154A1;
+  background-color: #4056A1;
+  font-family: "Bungee", sans-serif;
 }
 
 .negative-count {

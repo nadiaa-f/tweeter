@@ -25,7 +25,7 @@ let $tweet =
   <span class="tweet-username">${tweet.user.handle}</span>
 </header>
 <p class="tweet-body">
- ${tweet.content.text}
+ ${escape(tweet.content.text)}
 </p>
 <footer class="tweet-footer">
   <div>
@@ -41,6 +41,12 @@ let $tweet =
 
 return $tweet;
 }
+
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
 
 const loadTweet = function() {
   $.ajax('/tweets', {method: 'GET'})

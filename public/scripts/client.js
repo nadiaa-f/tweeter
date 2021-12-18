@@ -64,6 +64,7 @@ $(document).ready(function() {
     } else {
       $.post('/tweets', $(this).serialize()).then(
         function() {
+          $("#tweet-text").val(''); //clears text box after tweet
           $.ajax('/tweets', {method: 'GET'})
             .then(function(data) {
               loadLastTweet(data[data.length - 1]);

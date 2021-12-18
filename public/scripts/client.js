@@ -5,11 +5,11 @@
  */
 const renderTweets = function(tweets) {
 
-for (const tweet in tweets) {
-  const tweetHTML = createTweetElement(tweets[tweet]);
-  $('#tweet-container').prepend(tweetHTML);
-}
-}
+  for (const tweet in tweets) {
+    const tweetHTML = createTweetElement(tweets[tweet]);
+    $('#tweet-container').prepend(tweetHTML);
+  }
+};
 
 const loadLastTweet = function(tweet) {
   const tweetHTML = createTweetElement(tweet);
@@ -17,7 +17,7 @@ const loadLastTweet = function(tweet) {
 };
 
 const createTweetElement = function(tweet) {
-let $tweet =
+  let $tweet =
 `<article class="tweet-box">
 <header class="tweet-header">
   <img class="tweet-header-pic" src=${tweet.user.avatars}>
@@ -37,10 +37,10 @@ let $tweet =
     <button class="btn"><i class="fa fa-heart"></i></button>
   </div>
 </footer>
-</article>`
+</article>`;
 
-return $tweet;
-}
+  return $tweet;
+};
 
 const escape =  function(str) {
   let div = document.createElement('div');

@@ -12,5 +12,5 @@ $(document).ready(function() {
     } else if (count >= 0) {
       counter.removeClass("negative-count");
     }
-  })
-}); 
+  });
+});

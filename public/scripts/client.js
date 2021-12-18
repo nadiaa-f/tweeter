@@ -71,5 +71,9 @@ return $tweet;
 }
 
 $(document).ready(function() {
-renderTweets(data);
+  $(".tweet-form").submit(function(event) {
+    event.preventDefault();
+    $.post('/tweets', $(this).serialize());
+    renderTweets(data);
+  });
 });

@@ -58,9 +58,10 @@ $(document).ready(function() {
   $(".tweet-form").submit(function(event) {
     event.preventDefault();
     if ($("#tweet-text").val().length === 0) {
-      alert('Please type in something to tweet!');
+      $(".error").html(`<i class="fas fa-exclamation-triangle"></i> &nbsp Please type in something to tweet! &nbsp <i class="fas fa-exclamation-triangle"></i>`).slideDown().delay(2000).slideUp(500);
+      return;
     } else if ($("#tweet-text").val().length > 140) {
-      alert('Sorry! This tweet is too long!');
+      $(".error").html(`<i class="fas fa-exclamation-triangle"></i> &nbsp Sorry! This tweet is too long! &nbsp <i class="fas fa-exclamation-triangle"></i>`).slideDown().delay(2000).slideUp(500);
     } else {
       $.post('/tweets', $(this).serialize()).then(
         function() {

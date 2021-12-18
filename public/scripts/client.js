@@ -7,9 +7,14 @@ const renderTweets = function(tweets) {
 
 for (const tweet in tweets) {
   const tweetHTML = createTweetElement(tweets[tweet]);
-  $('#tweet-container').append(tweetHTML);
+  $('#tweet-container').prepend(tweetHTML);
 }
 }
+
+const loadLastTweet = function(tweet) {
+  const tweetHTML = createTweetElement(tweet);
+  $('#tweet-container').prepend(tweetHTML);
+};
 
 const createTweetElement = function(tweet) {
 let $tweet =
@@ -37,6 +42,12 @@ let $tweet =
 return $tweet;
 }
 
+const loadTweet = function() {
+  $.ajax('/tweets', {method: 'GET'})
+    .then(function(data) {
+      renderTweets(data);
+    });
+};
 $(document).ready(function() {
   $(".tweet-button").on('click', function(event) {
     if ($("#tweet-text").val().length === 0) {
@@ -52,8 +63,5 @@ $(document).ready(function() {
       });
     }
   });
-  $.ajax('/tweets', {method: 'GET'})
-  .then(function(data) {
-    renderTweets(data);
-  });
 });
+loadTweet();

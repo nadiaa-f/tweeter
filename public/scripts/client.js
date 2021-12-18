@@ -1,8 +1,4 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+//renders each tweet:
 const renderTweets = function(tweets) {
 
   for (const tweet in tweets) {
@@ -11,11 +7,13 @@ const renderTweets = function(tweets) {
   }
 };
 
+//prints tweet:
 const loadLastTweet = function(tweet) {
   const tweetHTML = createTweetElement(tweet);
   $('#tweet-container').prepend(tweetHTML);
 };
 
+//tweet box element:
 const createTweetElement = function(tweet) {
   let $tweet =
 `<article class="tweet-box">
@@ -42,18 +40,22 @@ const createTweetElement = function(tweet) {
   return $tweet;
 };
 
+//prevents script from being passed into the form:
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 };
 
+//loads tweet:
 const loadTweet = function() {
   $.ajax('/tweets', {method: 'GET'})
     .then(function(data) {
       renderTweets(data);
     });
 };
+
+//loaded page functions:
 $(document).ready(function() {
   $(".tweet-form").submit(function(event) {
     event.preventDefault();
@@ -65,7 +67,7 @@ $(document).ready(function() {
     } else {
       $.post('/tweets', $(this).serialize()).then(
         function() {
-          $("#tweet-text").val(''); //clears text box after tweet
+          $("#tweet-text").val(''); 
           $.ajax('/tweets', {method: 'GET'})
             .then(function(data) {
               loadLastTweet(data[data.length - 1]);
@@ -74,4 +76,6 @@ $(document).ready(function() {
     }
   });
 });
+
+//shows exisiting tweets when page is loaded:
 loadTweet();

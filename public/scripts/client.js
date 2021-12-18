@@ -38,9 +38,19 @@ return $tweet;
 }
 
 $(document).ready(function() {
-  $(".tweet-form").submit(function(event) {
-    event.preventDefault();
-    $.post('/tweets', $(this).serialize());
+  $(".tweet-button").on('click', function(event) {
+    if ($("#tweet-text").val().length === 0) {
+      event.preventDefault();
+      alert('Please type in something to tweet!');
+    } else if ($("#tweet-text").val().length > 140) {
+      event.preventDefault();
+      alert('Sorry! This tweet is too long!');
+    } else {
+      $(".tweet-form").submit(function(event) {
+        event.preventDefault();
+        $.post('/tweets', $(this).serialize());
+      });
+    }
   });
   $.ajax('/tweets', {method: 'GET'})
   .then(function(data) {

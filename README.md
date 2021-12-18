@@ -12,6 +12,11 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Screenshots
+
+!["Screenshot of tweet wriiten in compose box"](https://github.com/nadiaa-f/tweeter/blob/master/docs/tweet.png?raw=true)
+!["Screenshot of tweets"](https://github.com/nadiaa-f/tweeter/blob/master/docs/tweet-on-page.png?raw=true)
+
 ## Dependencies
 
 - Express
